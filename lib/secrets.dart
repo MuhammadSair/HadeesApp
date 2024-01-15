@@ -1,1 +1,1 @@
-const openAIAPIKey = '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';
+ 
