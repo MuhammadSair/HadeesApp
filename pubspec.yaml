@@ -28,31 +28,28 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  animate_do: ^3.1.2
+  carousel_slider: ^4.0.0
+  cloud_firestore: ^4.13.0
   cupertino_icons: ^1.0.3
+  curved_navigation_bar: ^1.0.3
   firebase_auth: ^4.13.0
   firebase_core: ^2.22.0
   firebase_storage: ^11.5.0
-  cloud_firestore: ^4.13.0
-  carousel_slider: ^4.0.0
-  curved_navigation_bar: ^1.0.3
-  speech_to_text: ^6.5.1
-  flutter_tts: ^3.8.5
-  animate_do: ^3.1.2
-  
   flutter:
     sdk: flutter
+  flutter_local_notifications: ^16.3.0
   flutter_svg: ^2.0.9
+  flutter_tts: ^3.8.5
+  geolocator: ^10.1.0
   get: ^4.6.6
-  shared_preferences: ^2.2.2
+  hijri: ^3.0.0
   http: ^1.1.0
+  shared_preferences: ^2.2.2
+  speech_to_text: ^6.5.1
+  timezone: ^0.9.2
 
 dev_dependencies:
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
@@ -76,6 +73,9 @@ flutter:
     - assets/book2.png
     - assets/sounds/
     - assets/vr.png
+    - assets/home.jpg
+    - assets/background.jpg
+    - assets/logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

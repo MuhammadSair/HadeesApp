@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:mad_project/landing_page.dart';
+import 'package:mad_project/home.dart';
 import 'package:mad_project/login_page.dart';
 import 'package:mad_project/pallets.dart';
 import 'package:mad_project/resources/authFireBase.dart';
 import 'package:mad_project/widgets/gradient_button.dart';
 import 'package:mad_project/widgets/input_fields.dart';
-import 'package:mad_project/widgets/social_button.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SigninPage extends StatefulWidget {
   const SigninPage({super.key});
@@ -48,11 +48,14 @@ class _SigninPageState extends State<SigninPage> {
       // ignore: use_build_context_synchronously
       showSnackBar(res, context);
     } else {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setString('email', _emailCOntroller.text);
       // ignore: use_build_context_synchronously
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) =>  const LandingPage()));
+          MaterialPageRoute(builder: (context) =>  const Home()));
     }
   }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +64,7 @@ class _SigninPageState extends State<SigninPage> {
           child: Center(
             child: Column(
             children: [
-              Image.asset('assets/signin_balls.png'),
+              Image.asset('assets/signin_balls.png',color: Pallete.backgroundColor,),
               const Text('Sign Up',style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 30
@@ -69,13 +72,9 @@ class _SigninPageState extends State<SigninPage> {
               const SizedBox(
                 height: 8,
               ),
-              const SocialButton(social: 'assets/g_logo.svg', label: 'Continue with Google'),
               const SizedBox(
-                height: 15,
+                height: 25,
               ),
-             
-              const Text('or',style: TextStyle(fontSize: 17),),
-              const SizedBox(height: 10,),
               LoginField(textEditingController: _userNameCOntroller,hintText: 'Enter username',textInputType: TextInputType.text,),
               const SizedBox(height: 15,),
               LoginField(textEditingController: _emailCOntroller,hintText: 'Email',textInputType: TextInputType.emailAddress,),
