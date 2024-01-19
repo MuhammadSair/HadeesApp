@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:mad_project/languageScreen.dart';
 
-
 class HadithName {
   final Map<String, dynamic> name;
 
@@ -28,6 +27,7 @@ Future<List<HadithName>> fetchNamesList() async {
     throw Exception("Failed to Load Data");
   }
 }
+
 class HadithPage extends StatefulWidget {
   const HadithPage({super.key});
 
@@ -37,12 +37,13 @@ class HadithPage extends StatefulWidget {
 }
 
 class _HadithRandomPageState extends State<HadithPage> {
- late Future<List<HadithName>> futureName;
+  late Future<List<HadithName>> futureName;
   @override
   void initState() {
     super.initState();
     futureName = fetchNamesList();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +51,7 @@ class _HadithRandomPageState extends State<HadithPage> {
         backgroundColor: Colors.teal,
         title: const Text("Select a Book of Hadith"),
       ),
-     body: SafeArea(
+      body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(20),
           child: Center(
@@ -68,7 +69,6 @@ class _HadithRandomPageState extends State<HadithPage> {
                   width: double.infinity,
                 ),
                 const SizedBox(height: 15),
-               
                 const SizedBox(height: 15),
                 FutureBuilder<List<HadithName>>(
                   future: futureName,
@@ -118,12 +118,14 @@ class _HadithRandomPageState extends State<HadithPage> {
                                       const SizedBox(
                                         width: 7,
                                       ),
-                                      Text(
-                                        name.name['name'] as String,
-                                        style: const TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 22,
-                                          fontWeight: FontWeight.bold,
+                                      Center(
+                                        child: Text(
+                                          name.name['name'] as String,
+                                          style: const TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
                                       ),
                                     ],
